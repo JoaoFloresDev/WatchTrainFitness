@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder.WatchKit.Storyboard" version="3.0" toolsVersion="17506" targetRuntime="watchKit" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="oLJ-16-NFj">
+    <device id="watch38"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17505"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBWatchKitPlugin" version="17500"/>
+    </dependencies>
+    <scenes>
+        <!--InterfaceController-->
+        <scene sceneID="OpN-aT-ngB">
+            <objects>
+                <controller identifier="InterfaceController" id="3Sc-v4-Gw2" customClass="InterfaceController" customModule="WatchHealthKitPOC_Extension">
+                    <items>
+                        <group width="110" height="110" alignment="center" backgroundImage="Progress-0" contentMode="redraw" layout="vertical" spacing="0.0" id="3uf-vM-Cg7">
+                            <items>
+                                <button alignment="center" verticalAlignment="center" id="xLt-Mv-7Kk">
+                                    <group key="contentGroup" width="60" height="60" alignment="left" layout="vertical" radius="0.0" spacing="0.0" id="a7N-lC-Lxf">
+                                        <items>
+                                            <label height="20" alignment="center" verticalAlignment="center" text="30" textAlignment="center" baselineAdjustment="alignCenters" minimumScaleFactor="0.5" id="Zha-uO-qHR">
+                                                <fontDescription key="font" type="system" weight="semibold" pointSize="25"/>
+                                            </label>
+                                            <label height="10" alignment="center" verticalAlignment="center" text="metros" textAlignment="center" baselineAdjustment="alignCenters" id="ZoP-qQ-439">
+                                                <fontDescription key="font" type="system" weight="semibold" pointSize="9"/>
+                                            </label>
+                                        </items>
+                                    </group>
+                                    <connections>
+                                        <action selector="startWorkoutAction" destination="3Sc-v4-Gw2" id="PP3-BH-dv3"/>
+                                    </connections>
+                                </button>
+                            </items>
+                        </group>
+                        <label alignment="center" text="meta: 30m" id="d37-cF-NSg">
+                            <fontDescription key="font" type="system" pointSize="12"/>
+                        </label>
+                        <group width="1" alignment="center" id="eH5-5b-Pmg">
+                            <items>
+                                <imageView height="1" heightAdjustment="-6" alignment="right" verticalAlignment="center" image="heart" contentMode="scaleAspectFit" id="CoC-ng-3vb"/>
+                                <label width="40" alignment="right" verticalAlignment="center" text="-----" textAlignment="left" id="lne-R0-ddR">
+                                    <fontDescription key="font" type="system" pointSize="12"/>
+                                </label>
+                                <label alignment="left" verticalAlignment="center" text="00:00:00" id="Z5X-KY-4TJ">
+                                    <fontDescription key="font" type="system" pointSize="12"/>
+                                </label>
+                            </items>
+                        </group>
+                    </items>
+                    <connections>
+                        <outlet property="backgroundGroup" destination="3uf-vM-Cg7" id="OKq-6l-xR7"/>
+                        <outlet property="distanceLabel" destination="Zha-uO-qHR" id="GG6-Jq-rDv"/>
+                        <outlet property="heartrateLabel" destination="lne-R0-ddR" id="Sfl-7U-PMz"/>
+                        <outlet property="mensureLabel" destination="ZoP-qQ-439" id="MXE-Be-3SC"/>
+                        <outlet property="target" destination="d37-cF-NSg" id="BbD-Hy-kpa"/>
+                        <outlet property="timerLabel" destination="Z5X-KY-4TJ" id="inE-oe-VfV"/>
+                    </connections>
+                </controller>
+            </objects>
+            <point key="canvasLocation" x="453" y="171"/>
+        </scene>
+        <!--OptionsController-->
+        <scene sceneID="JGj-VN-PQV">
+            <objects>
+                <controller identifier="OptionsController" id="oLJ-16-NFj" customClass="OptionsController" customModule="WatchHealthKitPOC_Extension">
+                    <items>
+                        <table alignment="left" id="6mj-2R-lDL">
+                            <items>
+                                <tableRow identifier="RowController" id="dqU-Bz-yap" customClass="RowController" customModule="WatchHealthKitPOC_Extension">
+                                    <group key="rootItem" width="1" height="0.0" alignment="left" layout="vertical" id="Q4w-9W-xWc">
+                                        <items>
+                                            <label alignment="left" text="-----" numberOfLines="0" id="x2s-fE-Ld9">
+                                                <fontDescription key="font" type="system" weight="medium" pointSize="12"/>
+                                            </label>
+                                            <label alignment="left" text="------" numberOfLines="0" id="Mt6-Yy-OtF">
+                                                <fontDescription key="font" type="system" weight="light" pointSize="12"/>
+                                            </label>
+                                        </items>
+                                        <edgeInsets key="margins" left="10" right="10" top="5" bottom="5"/>
+                                    </group>
+                                    <connections>
+                                        <outlet property="subtitleLabel" destination="Mt6-Yy-OtF" id="hmt-Kx-lBt"/>
+                                        <outlet property="titleLabel" destination="x2s-fE-Ld9" id="WDN-j8-cyR"/>
+                                    </connections>
+                                </tableRow>
+                            </items>
+                        </table>
+                        <button width="1" alignment="left" title="Notificação" id="LWk-Ig-fEM">
+                            <connections>
+                                <action selector="requestLocalNotification" destination="oLJ-16-NFj" id="O6x-cN-CTu"/>
+                            </connections>
+                        </button>
+                    </items>
+                    <connections>
+                        <outlet property="trainsTable" destination="6mj-2R-lDL" id="NFY-MR-Ip9"/>
+                    </connections>
+                </controller>
+            </objects>
+            <point key="canvasLocation" x="220" y="171"/>
+        </scene>
+        <!--Static Notification Interface Controller-->
+        <scene sceneID="3d5-gd-ogv">
+            <objects>
+                <notificationController id="wXS-gp-y2R">
+                    <items>
+                        <label alignment="left" text="Alert Label" numberOfLines="0" id="xAz-OT-VQx"/>
+                    </items>
+                    <notificationCategory key="notificationCategory" identifier="myCategory" id="T42-m9-8CC"/>
+                    <connections>
+                        <outlet property="notificationAlertLabel" destination="xAz-OT-VQx" id="egQ-Lp-Y4N"/>
+                        <segue destination="0hb-ah-Wz7" kind="relationship" relationship="dynamicNotificationInterface" id="o7o-b3-rgz"/>
+                        <segue destination="tfC-io-v4a" kind="relationship" relationship="dynamicInteractiveNotificationInterface" id="Meq-8M-Mzs"/>
+                    </connections>
+                </notificationController>
+            </objects>
+            <point key="canvasLocation" x="220" y="643"/>
+        </scene>
+        <!--Notification Controller-->
+        <scene sceneID="dF9-8b-ECX">
+            <objects>
+                <controller id="0hb-ah-Wz7" customClass="NotificationController" customModule="WatchHealthKitPOC" customModuleProvider="target"/>
+            </objects>
+            <point key="canvasLocation" x="468" y="643"/>
+        </scene>
+        <!--Notification Controller-->
+        <scene sceneID="0we-9M-nY0">
+            <objects>
+                <controller id="tfC-io-v4a" customClass="NotificationController" customModule="WatchHealthKitPOC" customModuleProvider="target"/>
+            </objects>
+            <point key="canvasLocation" x="468" y="1032"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="Progress-0" width="250" height="250"/>
+        <image name="heart" width="22" height="19"/>
+    </resources>
+</document>
